@@ -6,6 +6,15 @@ Accepts an alternate Promise implementation as input if the environment doesn't 
 
 This module is meant to be a convenient standalone implementation of a Promise utility, but it doesn't provide an alternate Promise constructor and is less than 500 bytes minified and gzipped.
 
+## Example
+```js
+var promiseTry = require('promise-try');
+
+promiseTry(function () {
+	return 5;
+}).then(result => assert(result === 5));
+```
+
 ## API
 
 ```js
