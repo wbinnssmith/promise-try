@@ -1,13 +1,15 @@
 {
   "name": "promise-try",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "wraps a synchronously executing function and returns a promise",
   "repository": "wbinnssmith/promise-try",
   "main": "index.js",
   "scripts": {
     "test": "semistandard && node test.js"
   },
-  "keywords": ["promise"],
+  "keywords": [
+    "promise"
+  ],
   "author": "Will Binns-Smith <wbinnssmith@gmail.com>",
   "license": "MIT",
   "devDependencies": {
