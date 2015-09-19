@@ -1,5 +1,8 @@
 # promise-try
 
+[![Build Status](https://travis-ci.org/wbinnssmith/promise-try.svg?branch=master)](https://travis-ci.org/wbinnssmith/promise-try)
+[![js-semistandard-style](https://cdn.rawgit.com/flet/semistandard/master/badge.svg)](https://github.com/Flet/semistandard)
+
 Wraps a synchronously executing function and returns a promise that resolves to its return value and rejects its exceptions. API-compatible with [Bluebird](https://github.com/petkaantonov/bluebird)'s `Promise.try`.
 
 Accepts an alternate Promise implementation as input if the environment doesn't natively support them.
