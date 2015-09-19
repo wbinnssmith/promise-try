@@ -1,0 +1,18 @@
+{
+  "name": "promise-try",
+  "version": "1.0.0",
+  "description": "wraps a synchronously executing function and returns a promise",
+  "repository": "wbinnssmith/promise-try",
+  "main": "index.js",
+  "scripts": {
+    "test": "semistandard && node test.js"
+  },
+  "keywords": ["promise"],
+  "author": "Will Binns-Smith <wbinnssmith@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "blue-tape": "^0.1.10",
+    "pinkie": "^1.0.0",
+    "semistandard": "^7.0.2"
+  }
+}
