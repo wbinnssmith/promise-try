@@ -27,35 +27,6 @@ test('returns promise resolving with a successful return value', function (t) {
   });
 });
 
-test('calls with a given argument if not an array', function (t) {
-  return ptry(function (x) {
-    return x * x;
-  }, 5).then(function (res) {
-    t.equal(res, 25);
-  });
-});
-
-test('applies with a given argument if an array', function (t) {
-  return ptry(function (x, y) {
-    return x * y;
-  }, [5, 10]).then(function (res) {
-    t.equal(res, 50);
-  });
-});
-
-test('uses the provided context when executing the function', function (t) {
-  var ctx = {
-    x: 'hello ',
-    y: 'world'
-  };
-
-  return ptry(function () {
-    return this.x + this.y;
-  }, null, ctx).then(function (res) {
-    t.equal(res, 'hello world');
-  });
-});
-
 test('doesnt re-wrap promise-returning functions', function (t) {
   return ptry(function () {
     return Promise.resolve(5);
@@ -79,7 +50,7 @@ test('doesnt re-wrap thenable-returning functions', function (t) {
 test('uses user-provided Promise constructor if passed', function (t) {
   return ptry(function () {
     return 5;
-  }, null, null, Pinkie).then(function (res) {
+  }, Pinkie).then(function (res) {
     t.equal(res, 5);
   });
 });
