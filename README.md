@@ -4,7 +4,7 @@
 
 [![js-semistandard-style](https://cdn.rawgit.com/flet/semistandard/master/badge.svg)](https://github.com/Flet/semistandard)
 
-Wraps a synchronously executing function and returns a promise that resolves to its return value and rejects its exceptions. API-compatible with [Bluebird](https://github.com/petkaantonov/bluebird)'s `Promise.try`.
+Wraps a synchronously executing function and returns a promise that resolves to its return value and rejects its exceptions. API-compatible with [Bluebird](https://github.com/petkaantonov/bluebird)'s `Promise.try` ([API Reference](http://bluebirdjs.com/docs/api/promise.try.html)).
 
 Accepts an alternate Promise implementation as input if the environment doesn't natively support them.
 
@@ -22,17 +22,14 @@ promiseTry(function () {
 ## API
 
 ```js
-function promiseTry(fn, args, ctx, Promise)
+function promiseTry(fn, Promise)
 ```
 
-`fn` - a synchronously executed function that may return or throw synchronously. This will be wrapped and returned as a promise.
+`fn` - a synchronously executed function that may return or throw synchronously. This will be wrapped and returned as a promise.  If arguments or a context need to be
+applied to the function, use `fn.bind(ctx, arg1, arg2...)`:
 
-`args` - arguments to applied to the passed function. If not an array, it will be passed as a single argument to the function. If an array, it will be spread across the function's parameters.
+```js
+promiseTry(function (paramValue) { return paramValue * valueInThis }.bind(this, 5));
+```
 
-<small>I personally don't like this API since one could never achieve passing the function a single argument that is an array, but this is here for compatibility with bluebird. Instead, one could just use something like `.bind(null, [1, 2, 3])` when passing the function.</small>
-
-`ctx` - the context (`this`) to be used when the function is executed.
-
-<small>Again, one could just use `.bind(ctx)` on the original function</small>
-
-`Promise` an alternate Promise implementation to use (perhaps if a global one doesn't exist)
+`Promise` - an alternate Promise implementation to use (perhaps if a global one doesn't exist)
